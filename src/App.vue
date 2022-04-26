@@ -4,7 +4,9 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+    import HelloWorld from './components/HelloWorld.vue'
+    import employees from './css/custom/employees.css'
+    import bootStrapCss from './css/boostrap/css/bootstrap.min.css'
 
 export default {
   name: 'App',
@@ -14,6 +16,7 @@ export default {
 }
 </script>
 
+<!-- Kallas på i HelloWorld.vue -->
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

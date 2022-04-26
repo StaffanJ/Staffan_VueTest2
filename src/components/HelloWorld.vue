@@ -1,58 +1,159 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
-      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
-      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul>
-  </div>
+    <div class="container">
+        <div class="row">
+            
+
+            <div v-if="EmployeeGet" class="col" id="employeesGet">
+                <table class="table table-hover table-striped table-bordered caption-top">
+                    <caption>List of employees</caption>
+                    <thead class="table-dark">
+                        <tr>
+                            <th></th>
+                            <!--<th>Id</th>-->
+                            <th>Name</th>
+                            <th>Number of times</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="emp in EmployeeGet">
+                            <td><img src="../icon/person-square.svg"></td>
+                            <!--<td>{{ emp.id }}</td>-->
+                            <td>{{ emp.name }}</td>
+                            <td>{{ emp.numOfTimes }}</td>
+                            <td v-if="emp.isAvailable === 0" id="employeeStatusHover">
+                                <form @submit.prevent="changeStatusEmployee">
+                                    <input type="text" id="empid" :value="emp.id"/>
+                                    <button class="btn"><img src="../icon/exclamation-circle.svg"></button>
+                                    <!--<input type="text" id="empid" :value="emp.id" v-model="employee.id" />
+                                    <button class="btn"><img src="../icon/exclamation-circle.svg"></button>-->
+                                </form>
+                            </td>
+                            <td v-if="emp.isAvailable === 1" id="employeeStatusHover">
+                                <form @submit.prevent="changeStatusEmployee">
+                                    <input type="text" id="empid" :value="emp.id"/>
+                                    <button class="btn"><img src="../icon/exclamation-circle-fill.svg"></button>
+                                </form>
+                            </td>
+                            
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div v-if="EmployeeRoll" class="col" id="employeesPost">
+                <table class="table table-bordered caption-top">
+                    <caption>Employee for the next task</caption>
+                    <thead class="table-dark">
+                        <tr>
+                            <th></th>
+                            <!--<th>Id</th>-->
+                            <th>Name</th>
+                            <th>Number of times</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-if="EmployeeRoll">
+                            <td><img src="../icon/person-workspace.svg" /></td>
+                            <!--<td>{{ EmployeeRoll.id }}</td>-->
+                            <td>{{ EmployeeRoll.name }}</td>
+                            <td>{{ EmployeeRoll.numOfTimes }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div id="employeeRoll" class="col">
+                <div>
+                    <form @submit.prevent="rollEmployee">
+                        <button type="submit" class="btn btn-outline-info btn-sm">Who gets to be the "lucky" one?</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </template>
 
-<script>
-export default {
-  name: 'HelloWorld',
-  props: {
-    msg: String
-  }
-}
-</script>
+<script lang="js">
+    import { defineComponent } from 'vue';
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-</style>
+    export default defineComponent({
+        data() {
+            return {
+                EmployeeGet: null,
+                EmployeePost: null,
+                EmployeeRoll: null,
+                //employee: [],
+                emp1: {
+                    name: "",
+                    id: ""
+                }
+            };
+        },
+        async created() {
+            // fetch the data when the view is created and the data is
+            // already being observed
+            this.fetchEmployee();
+        },
+        watch: {
+            // call again the method if the route changes
+            '$route': 'fetchEmployee'
+        },
+        methods: {
+            fetchEmployee(){
+                this.EmployeeGet = null;
+                this.Employeeloading = true;
+
+                fetch('Employee')
+                    .then(r => r.json())
+                    .then(json => {
+                        this.EmployeeGet = json;
+                        this.Employeeloading = false;
+                        return;
+                    });
+            },
+            changeStatusEmployee() {
+                this.EmployeePost = null;
+                //this.EmployeePostLoading = true;
+
+                fetch('Employee/ChangeStatus/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-type': 'application/json'
+                    },
+                        body: JSON.stringify({ data: this.emp1 })
+                    })
+                    .then(r => r.json())
+                    .then(json => {
+                        this.EmployeePost = json;
+                        //this.EmployeePostLoading = false;
+                        return;
+                    })
+                    .catch(err => {
+                        err
+                    });
+            },
+            rollEmployee() {
+                this.EmployeeRoll = null;
+                //this.EmployeePostLoading = true;
+
+                fetch('Employee/Roll', {
+                })
+                .then(r => r.json())
+                .then(json => {
+                    this.EmployeeRoll = json;
+                    this.fetchEmployee();
+                    //this.EmployeePostLoading = false;
+                    return;
+                })
+                .catch(err => {
+                    err
+                });
+            }
+        },
+    });
+
+</script>

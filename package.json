@@ -3,12 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "serve": "node aspnetcore-https.js && vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "core-js": "^3.8.3",
+    "jest": "^27.5.1",
+    "jest-editor-support": "^30.0.2",
     "vue": "^3.2.13"
   },
   "devDependencies": {

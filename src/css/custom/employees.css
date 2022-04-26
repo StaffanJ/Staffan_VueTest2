@@ -1,0 +1,14 @@
+body {
+}
+#employeesGet {
+    /*background-color: red;*/
+}
+#employeesPost {
+    /*background-color: cadetblue;*/
+}
+#employeeRoll {
+    /*background-color: lawngreen;*/
+}
+#employeeStatusHover:hover {
+    cursor: pointer;
+}
