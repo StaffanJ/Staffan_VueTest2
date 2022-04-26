@@ -38,7 +38,7 @@
     "Id": 6,
     "Name": "Nicklas",
     "Age": 0,
-    "NumOfTimes": 11,
+    "NumOfTimes": 12,
     "IsAvailable": 0
   },
   {
@@ -59,7 +59,7 @@
     "Id": 9,
     "Name": "Dahlqvist",
     "Age": 0,
-    "NumOfTimes": 11,
+    "NumOfTimes": 12,
     "IsAvailable": 0
   },
   {
@@ -80,7 +80,7 @@
     "Id": 12,
     "Name": "Hosy",
     "Age": 0,
-    "NumOfTimes": 11,
+    "NumOfTimes": 12,
     "IsAvailable": 0
   },
   {
@@ -94,7 +94,7 @@
     "Id": 14,
     "Name": "Linus",
     "Age": 0,
-    "NumOfTimes": 11,
+    "NumOfTimes": 12,
     "IsAvailable": 0
   },
   {
@@ -116,6 +116,6 @@
     "Name": "Rasmus",
     "Age": 0,
     "NumOfTimes": 11,
-    "IsAvailable": 0
+    "IsAvailable": 1
   }
 ]
