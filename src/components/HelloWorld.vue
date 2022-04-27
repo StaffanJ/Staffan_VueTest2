@@ -16,14 +16,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="(emp, index) in EmployeeGet">
+                        <tr v-for="emp in EmployeeGet" :key="emp.id">
                             <td><img src="../icon/person-square.svg"></td>
                             <!--<td>{{ emp.id }}</td>-->
                             <td>{{ emp.name }}</td>
                             <td>{{ emp.numOfTimes }}</td>
                             <td v-if="emp.isAvailable === 0" id="employeeStatusHover">
                                 <form @submit.prevent="changeStatusEmployee">
-                                    <input type="text" :id="emp.id" :name="'employee'+emp.id" :value="emp.id" v-model="employee['employee'+emp.id]" />
+                                    <input type="text" :value="emp.id" />
                                     <button class="btn"><img src="../icon/exclamation-circle.svg"></button>
                                     <!--<input type="text" id="empid" :value="emp.id" v-model="employee.id" />
                                     <button class="btn"><img src="../icon/exclamation-circle.svg"></button>-->
