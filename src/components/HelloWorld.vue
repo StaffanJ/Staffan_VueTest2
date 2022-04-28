@@ -12,7 +12,7 @@
                             <!--<th>Id</th>-->
                             <th>Name</th>
                             <th>Number of times</th>
-                            <th></th>
+                            <th>Is available for requests</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -22,18 +22,10 @@
                             <td>{{ emp.name }}</td>
                             <td>{{ emp.numOfTimes }}</td>
                             <td v-if="emp.isAvailable === 0" id="employeeStatusHover">
-                                <form @submit.prevent="changeStatusEmployee">
-                                    <input type="text" :value="emp.id" />
-                                    <button class="btn"><img src="../icon/exclamation-circle.svg"></button>
-                                    <!--<input type="text" id="empid" :value="emp.id" v-model="employee.id" />
-                                    <button class="btn"><img src="../icon/exclamation-circle.svg"></button>-->
-                                </form>
+                                <button type="submit" class="btn" @click.prevent="changeStatusEmployee(emp.id, emp.isAvailable)"><img src="../icon/exclamation-circle.svg"></button>
                             </td>
                             <td v-if="emp.isAvailable === 1" id="employeeStatusHover">
-                                <form @submit.prevent="changeStatusEmployee">
-                                    <input type="text" :id="empid" :value="emp.id"/>
-                                    <button type="submit" class="btn"><img src="../icon/exclamation-circle-fill.svg"></button>
-                                </form>
+                                <button type="submit" class="btn" @click.prevent="changeStatusEmployee(emp.id, emp.isAvailable)"><img src="../icon/exclamation-circle-fill.svg"></button>
                             </td>
                             
                         </tr>
@@ -87,9 +79,9 @@
                 EmployeePost: null,
                 EmployeeRoll: null,
                 //employee: [],
-                employee: {
+                emp: {
                     name: "",
-                    id: ""
+                    empid: ""
                 }
             };
         },
@@ -115,7 +107,8 @@
                         return;
                     });
             },
-            changeStatusEmployee() {
+            changeStatusEmployee(employee, isAvailable) {
+                console.log(employee);
                 this.EmployeePost = null;
                 //this.EmployeePostLoading = true;
 
@@ -124,11 +117,13 @@
                     headers: {
                         'Content-type': 'application/json'
                     },
-                        body: JSON.stringify({ data: this.employee })
+                        //body: JSON.stringify({ data: employee })
+                        body: JSON.stringify({ id: employee, isavailable: isAvailable })
                     })
                     .then(r => r.json())
                     .then(json => {
                         this.EmployeePost = json;
+                        this.fetchEmployee();
                         //this.EmployeePostLoading = false;
                         return;
                     })

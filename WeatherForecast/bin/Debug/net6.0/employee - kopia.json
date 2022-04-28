@@ -11,13 +11,13 @@
     "Name": "Arij",
     "Age": 0,
     "NumOfTimes": 11,
-    "IsAvailable": 0
+    "IsAvailable": 1
   },
   {
     "Id": 3,
     "Name": "Markus",
     "Age": 0,
-    "NumOfTimes": 11,
+    "NumOfTimes": 12,
     "IsAvailable": 0
   },
   {
@@ -31,7 +31,7 @@
     "Id": 5,
     "Name": "Jonas Nordstrom",
     "Age": 0,
-    "NumOfTimes": 11,
+    "NumOfTimes": 12,
     "IsAvailable": 0
   },
   {
@@ -45,15 +45,15 @@
     "Id": 7,
     "Name": "Anna",
     "Age": 0,
-    "NumOfTimes": 11,
+    "NumOfTimes": 12,
     "IsAvailable": 0
   },
   {
     "Id": 8,
     "Name": "Gustafsson",
     "Age": 0,
-    "NumOfTimes": 11,
-    "IsAvailable": 0
+    "NumOfTimes": 12,
+    "IsAvailable": 1
   },
   {
     "Id": 9,
@@ -66,56 +66,49 @@
     "Id": 10,
     "Name": "Malin",
     "Age": 0,
-    "NumOfTimes": 11,
-    "IsAvailable": 0
+    "NumOfTimes": 12,
+    "IsAvailable": 1
   },
   {
     "Id": 11,
-    "Name": "Erik",
-    "Age": 0,
-    "NumOfTimes": 11,
-    "IsAvailable": 0
-  },
-  {
-    "Id": 12,
     "Name": "Hosy",
     "Age": 0,
     "NumOfTimes": 12,
     "IsAvailable": 0
   },
   {
-    "Id": 13,
+    "Id": 12,
     "Name": "Jim",
     "Age": 0,
     "NumOfTimes": 11,
     "IsAvailable": 0
   },
   {
-    "Id": 14,
+    "Id": 13,
     "Name": "Linus",
     "Age": 0,
     "NumOfTimes": 12,
     "IsAvailable": 0
   },
   {
-    "Id": 15,
+    "Id": 14,
     "Name": "Mattias",
     "Age": 0,
-    "NumOfTimes": 11,
+    "NumOfTimes": 12,
     "IsAvailable": 0
   },
   {
-    "Id": 16,
+    "Id": 15,
     "Name": "Miran",
     "Age": 0,
     "NumOfTimes": 11,
     "IsAvailable": 0
   },
   {
-    "Id": 17,
+    "Id": 16,
     "Name": "Rasmus",
     "Age": 0,
-    "NumOfTimes": 11,
+    "NumOfTimes": 12,
     "IsAvailable": 1
   }
 ]

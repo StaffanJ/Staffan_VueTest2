@@ -102,9 +102,29 @@ namespace WeatherForecast.Controllers
 
         // PUT api/<EmployeeController>/5
         [HttpPost("ChangeStatus")]
-        public ActionResult ChangeStatus([FromBody] Employee employee)
+        public ActionResult ChangeStatus([FromBody] Employee ChangeEmployee)
         {
-            return new JsonResult(employee.Id);
+            Employee ChangeStatusEmployee = new Employee();
+            employees = Employee.GetEmployees();
+
+            if (ChangeEmployee.IsAvailable == 1)
+            {
+                employees.Find(x => x.Id == ChangeEmployee.Id).IsAvailable = 0;
+            }
+            else
+            {
+                employees.Find(x => x.Id == ChangeEmployee.Id).IsAvailable = 1;
+            }
+
+            using (StreamWriter r = new StreamWriter("employee - kopia.json"))
+            {
+                r.Write(JsonSerializer.Serialize(employees, new JsonSerializerOptions { WriteIndented = true }));
+            }
+
+            employees.Clear();
+
+            return new JsonResult(ChangeEmployee);
+            //return employee;
         }
 
         // DELETE api/<EmployeeController>/5
