@@ -4,19 +4,22 @@ namespace WeatherForecast
 {
     public class Employee
     {
-        //Id of the employee.
+        // Id of the employee.
         public int Id { get; set; }
-        //Firstname of the employee.
+        // Firstname of the employee.
         public string? FirstName { get; set; }
-        //Lastname of the employee.
+        // Lastname of the employee.
         public string? LastName { get; set; }
-        //Age of the employee.
+        // Age of the employee.
         public int Age { get; set; }
-
-        //Number of times this has been choosen.
+        // Number of times this has been choosen.
         public int NumOfTimes { get; set; }
-
+        // Is the employee available for requests.
         public int IsAvailable { get; set; }
+        // How many do we have that is available?
+        public int HowManyIsAvailable { get; set; }
+        // How many do we have in total?
+        public int HowManyDoWeHave { get; set; }
 
         public static List<Employee> GetEmployees()
         {

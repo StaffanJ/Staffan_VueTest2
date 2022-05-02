@@ -8,7 +8,7 @@
                     <caption>List of employees</caption>
                     <thead class="table-dark">
                         <tr>
-                            <th></th>
+                            <th>#</th>
                             <!--<th>Id</th>-->
                             <th>Firstname</th>
                             <th>Lastname</th>
@@ -27,6 +27,7 @@
                             <td v-if="emp.isAvailable === 0" id="employeeStatusHover">
                                 <!-- Skickar in till funktionen changeStatusEmployee, skickar med id och om den anställda är tillgänglig.-->
                                 <button type="submit" class="btn" @click.prevent="changeStatusEmployee(emp.id, emp.isAvailable)"><img src="../icon/exclamation-circle.svg"></button>
+                                {{ ++EmpIsAvailable }}
                             </td>
                             <td v-if="emp.isAvailable === 1" id="employeeStatusHover">
                                 <!-- Skickar in till funktionen changeStatusEmployee, skickar med id och om den anställda är tillgänglig.-->
@@ -35,6 +36,11 @@
                             <td><button type="submit" class="btn" @click.prevent="changeEmployeeInformation(emp.id, emp.firstName, emp.Lastname)"><img src="../icon/pencil-square.svg"></button></td>
                         </tr>
                     </tbody>
+                    <tfoot>
+                        <tr>
+                            <td>{{ EmpIsAvailable }}</td>
+                        </tr>
+                    </tfoot>
                 </table>
             </div>
             <!-- Hämtar en anställd, kopplad till rollEmployee() funktionen.-->
@@ -99,6 +105,7 @@
                 Employeeloading: false,
                 EmployeeEdit: false,
                 EmployeeRollShow: false,
+                EmpIsAvailable: 1,
                 employeeEditInfo: {
                     id: 0,
                     firstName: "",
@@ -123,7 +130,7 @@
         },
         // Metoderna som vi kan använda oss av och kalla på.
         methods: {
-            // Hämtar alla anställda och retunerar de
+            // Hämtar alla anställda och retunerar dem.
             fetchEmployee(){
                 this.EmployeeGet = null;
                 this.Employeeloading = true;
