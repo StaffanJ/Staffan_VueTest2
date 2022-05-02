@@ -42,7 +42,7 @@ namespace WeatherForecast.Controllers
 
             return Enumerable.Range(1, 1).Select(index => new Employee
             {
-                Name = value.Name
+                FirstName = value.FirstName
             })
             .ToArray();
         }
@@ -100,11 +100,10 @@ namespace WeatherForecast.Controllers
         {
         }
 
-        // PUT api/<EmployeeController>/5
+        // POST api/<EmployeeController>/5
         [HttpPost("ChangeStatus")]
         public ActionResult ChangeStatus([FromBody] Employee ChangeEmployee)
         {
-            Employee ChangeStatusEmployee = new Employee();
             employees = Employee.GetEmployees();
 
             if (ChangeEmployee.IsAvailable == 1)
@@ -115,6 +114,27 @@ namespace WeatherForecast.Controllers
             {
                 employees.Find(x => x.Id == ChangeEmployee.Id).IsAvailable = 1;
             }
+
+            using (StreamWriter r = new StreamWriter("employee - kopia.json"))
+            {
+                r.Write(JsonSerializer.Serialize(employees, new JsonSerializerOptions { WriteIndented = true }));
+            }
+
+            employees.Clear();
+
+            return new JsonResult(ChangeEmployee);
+            //return employee;
+        }
+
+        // POST api/<EmployeeController>/5
+        [HttpPost("ChangeInformation")]
+        public ActionResult ChangeInformation([FromBody] Employee ChangeEmployee)
+        {
+            employees = Employee.GetEmployees();
+
+            employees.Find(x => x.Id == ChangeEmployee.Id).FirstName = ChangeEmployee.FirstName;
+            employees.Find(x => x.Id == ChangeEmployee.Id).LastName = ChangeEmployee.LastName;
+            //employees.Find(x => x.Id == ChangeEmployee.Id).FirstName = ChangeEmployee.FirstName;
 
             using (StreamWriter r = new StreamWriter("employee - kopia.json"))
             {

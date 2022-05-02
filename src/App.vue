@@ -1,6 +1,8 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div style="background-color: rgb(92, 134, 151)">
+        <img alt="Vue logo" src="./assets/Alektum-A.png">
+    </div>
+    <HelloWorld msg="Welcome to Your Vue.js App" />
 </template>
 
 <script>
@@ -23,7 +25,5 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 </style>

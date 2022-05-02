@@ -6,10 +6,10 @@ namespace WeatherForecast
     {
         //Id of the employee.
         public int Id { get; set; }
-
-        //Name of the employee.
-        public string? Name { get; set; }
-
+        //Firstname of the employee.
+        public string? FirstName { get; set; }
+        //Lastname of the employee.
+        public string? LastName { get; set; }
         //Age of the employee.
         public int Age { get; set; }
 

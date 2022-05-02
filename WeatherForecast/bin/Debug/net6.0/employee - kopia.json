@@ -1,114 +1,130 @@
 [
   {
     "Id": 1,
-    "Name": "Staffan",
+    "FirstName": "Staffan",
+    "LastName": "Jansson",
     "Age": 0,
-    "NumOfTimes": 11,
-    "IsAvailable": 0
-  },
-  {
-    "Id": 2,
-    "Name": "Arij",
-    "Age": 0,
-    "NumOfTimes": 11,
+    "NumOfTimes": 12,
     "IsAvailable": 1
   },
   {
-    "Id": 3,
-    "Name": "Markus",
+    "Id": 2,
+    "FirstName": "Arij",
+    "LastName": "Cherro",
     "Age": 0,
     "NumOfTimes": 12,
     "IsAvailable": 0
   },
   {
-    "Id": 4,
-    "Name": "Jonas Jeppsson",
+    "Id": 3,
+    "FirstName": "Markus",
+    "LastName": "Persson",
     "Age": 0,
-    "NumOfTimes": 11,
+    "NumOfTimes": 12,
+    "IsAvailable": 1
+  },
+  {
+    "Id": 4,
+    "FirstName": "Jonas",
+    "LastName": "Jeppsson",
+    "Age": 0,
+    "NumOfTimes": 12,
     "IsAvailable": 0
   },
   {
     "Id": 5,
-    "Name": "Jonas Nordstrom",
+    "FirstName": "Jonas",
+    "LastName": "Nordstrom",
     "Age": 0,
     "NumOfTimes": 12,
-    "IsAvailable": 0
+    "IsAvailable": 1
   },
   {
     "Id": 6,
-    "Name": "Nicklas",
+    "FirstName": "Nicklas",
+    "LastName": "",
     "Age": 0,
     "NumOfTimes": 12,
     "IsAvailable": 0
   },
   {
     "Id": 7,
-    "Name": "Anna",
+    "FirstName": "Anna",
+    "LastName": "Jansson",
     "Age": 0,
     "NumOfTimes": 12,
     "IsAvailable": 0
   },
   {
     "Id": 8,
-    "Name": "Gustafsson",
+    "FirstName": "Annika",
+    "LastName": "Gustafsson",
     "Age": 0,
     "NumOfTimes": 12,
     "IsAvailable": 1
   },
   {
     "Id": 9,
-    "Name": "Dahlqvist",
+    "FirstName": "Dahlqvist",
+    "LastName": "",
     "Age": 0,
     "NumOfTimes": 12,
     "IsAvailable": 0
   },
   {
     "Id": 10,
-    "Name": "Malin",
+    "FirstName": "Malin",
+    "LastName": "",
     "Age": 0,
     "NumOfTimes": 12,
     "IsAvailable": 1
   },
   {
     "Id": 11,
-    "Name": "Hosy",
+    "FirstName": "Hosy",
+    "LastName": "",
     "Age": 0,
-    "NumOfTimes": 12,
+    "NumOfTimes": 13,
     "IsAvailable": 0
   },
   {
     "Id": 12,
-    "Name": "Jim",
+    "FirstName": "Jim",
+    "LastName": "",
     "Age": 0,
-    "NumOfTimes": 11,
-    "IsAvailable": 0
+    "NumOfTimes": 12,
+    "IsAvailable": 1
   },
   {
     "Id": 13,
-    "Name": "Linus",
+    "FirstName": "Linus",
+    "LastName": "",
     "Age": 0,
     "NumOfTimes": 12,
     "IsAvailable": 0
   },
   {
     "Id": 14,
-    "Name": "Mattias",
+    "FirstName": "Mattias",
+    "LastName": "",
     "Age": 0,
-    "NumOfTimes": 12,
-    "IsAvailable": 0
+    "NumOfTimes": 13,
+    "IsAvailable": 1
   },
   {
     "Id": 15,
-    "Name": "Miran",
+    "FirstName": "Miran",
+    "LastName": "",
     "Age": 0,
-    "NumOfTimes": 11,
+    "NumOfTimes": 12,
     "IsAvailable": 0
   },
   {
     "Id": 16,
-    "Name": "Rasmus",
+    "FirstName": "Rasmus",
+    "LastName": "",
     "Age": 0,
-    "NumOfTimes": 12,
+    "NumOfTimes": 13,
     "IsAvailable": 1
   }
 ]
