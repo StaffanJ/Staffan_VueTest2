@@ -3,9 +3,11 @@
     "Id": 1,
     "FirstName": "Staffan",
     "LastName": "Jansson",
-    "Age": 0,
+    "Age": 29,
     "NumOfTimes": 12,
-    "IsAvailable": 1
+    "IsAvailable": 1,
+    "HowManyIsAvailable": 0,
+    "HowManyDoWeHave": 0
   },
   {
     "Id": 2,
@@ -13,7 +15,9 @@
     "LastName": "Cherro",
     "Age": 0,
     "NumOfTimes": 12,
-    "IsAvailable": 0
+    "IsAvailable": 0,
+    "HowManyIsAvailable": 0,
+    "HowManyDoWeHave": 0
   },
   {
     "Id": 3,
@@ -21,15 +25,19 @@
     "LastName": "Persson",
     "Age": 0,
     "NumOfTimes": 12,
-    "IsAvailable": 1
+    "IsAvailable": 1,
+    "HowManyIsAvailable": 0,
+    "HowManyDoWeHave": 0
   },
   {
     "Id": 4,
     "FirstName": "Jonas",
     "LastName": "Jeppsson",
     "Age": 0,
-    "NumOfTimes": 12,
-    "IsAvailable": 0
+    "NumOfTimes": 13,
+    "IsAvailable": 1,
+    "HowManyIsAvailable": 0,
+    "HowManyDoWeHave": 0
   },
   {
     "Id": 5,
@@ -37,7 +45,9 @@
     "LastName": "Nordstrom",
     "Age": 0,
     "NumOfTimes": 12,
-    "IsAvailable": 1
+    "IsAvailable": 1,
+    "HowManyIsAvailable": 0,
+    "HowManyDoWeHave": 0
   },
   {
     "Id": 6,
@@ -45,7 +55,9 @@
     "LastName": "Wennberg",
     "Age": 0,
     "NumOfTimes": 12,
-    "IsAvailable": 0
+    "IsAvailable": 0,
+    "HowManyIsAvailable": 0,
+    "HowManyDoWeHave": 0
   },
   {
     "Id": 7,
@@ -53,7 +65,9 @@
     "LastName": "Jansson",
     "Age": 0,
     "NumOfTimes": 12,
-    "IsAvailable": 0
+    "IsAvailable": 1,
+    "HowManyIsAvailable": 0,
+    "HowManyDoWeHave": 0
   },
   {
     "Id": 8,
@@ -61,15 +75,19 @@
     "LastName": "Gustafsson",
     "Age": 0,
     "NumOfTimes": 12,
-    "IsAvailable": 1
+    "IsAvailable": 1,
+    "HowManyIsAvailable": 0,
+    "HowManyDoWeHave": 0
   },
   {
     "Id": 9,
-    "FirstName": "Dahlqvist",
-    "LastName": "",
+    "FirstName": "Annika",
+    "LastName": "Dahlqvist",
     "Age": 0,
     "NumOfTimes": 12,
-    "IsAvailable": 0
+    "IsAvailable": 0,
+    "HowManyIsAvailable": 0,
+    "HowManyDoWeHave": 0
   },
   {
     "Id": 10,
@@ -77,7 +95,9 @@
     "LastName": "",
     "Age": 0,
     "NumOfTimes": 12,
-    "IsAvailable": 1
+    "IsAvailable": 1,
+    "HowManyIsAvailable": 0,
+    "HowManyDoWeHave": 0
   },
   {
     "Id": 11,
@@ -85,7 +105,9 @@
     "LastName": "",
     "Age": 0,
     "NumOfTimes": 13,
-    "IsAvailable": 0
+    "IsAvailable": 0,
+    "HowManyIsAvailable": 0,
+    "HowManyDoWeHave": 0
   },
   {
     "Id": 12,
@@ -93,7 +115,9 @@
     "LastName": "",
     "Age": 0,
     "NumOfTimes": 12,
-    "IsAvailable": 1
+    "IsAvailable": 1,
+    "HowManyIsAvailable": 0,
+    "HowManyDoWeHave": 0
   },
   {
     "Id": 13,
@@ -101,7 +125,9 @@
     "LastName": "",
     "Age": 0,
     "NumOfTimes": 12,
-    "IsAvailable": 0
+    "IsAvailable": 1,
+    "HowManyIsAvailable": 0,
+    "HowManyDoWeHave": 0
   },
   {
     "Id": 14,
@@ -109,7 +135,9 @@
     "LastName": "",
     "Age": 0,
     "NumOfTimes": 13,
-    "IsAvailable": 1
+    "IsAvailable": 0,
+    "HowManyIsAvailable": 0,
+    "HowManyDoWeHave": 0
   },
   {
     "Id": 15,
@@ -117,7 +145,9 @@
     "LastName": "",
     "Age": 0,
     "NumOfTimes": 12,
-    "IsAvailable": 0
+    "IsAvailable": 1,
+    "HowManyIsAvailable": 0,
+    "HowManyDoWeHave": 0
   },
   {
     "Id": 16,
@@ -125,6 +155,8 @@
     "LastName": "",
     "Age": 0,
     "NumOfTimes": 13,
-    "IsAvailable": 1
+    "IsAvailable": 1,
+    "HowManyIsAvailable": 0,
+    "HowManyDoWeHave": 0
   }
 ]

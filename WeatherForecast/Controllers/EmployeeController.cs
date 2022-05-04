@@ -134,6 +134,7 @@ namespace WeatherForecast.Controllers
 
             employees.Find(x => x.Id == ChangeEmployee.Id).FirstName = ChangeEmployee.FirstName;
             employees.Find(x => x.Id == ChangeEmployee.Id).LastName = ChangeEmployee.LastName;
+            employees.Find(x => x.Id == ChangeEmployee.Id).Age = ChangeEmployee.Age;
             //employees.Find(x => x.Id == ChangeEmployee.Id).FirstName = ChangeEmployee.FirstName;
 
             using (StreamWriter r = new StreamWriter("employee - kopia.json"))

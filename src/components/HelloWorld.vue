@@ -1,8 +1,6 @@
 <template>
     <div class="container">
         <div class="row">
-
-
             <div v-if="EmployeeGet" class="col" id="employeesGet">
                 <table class="table table-hover table-striped table-bordered caption-top">
                     <caption>List of employees</caption>
@@ -13,34 +11,31 @@
                             <th>Firstname</th>
                             <th>Lastname</th>
                             <th>Number of times</th>
-                            <th>Is available</th>
+                            <th>Is available: {{ EmpIsAvailable }}</th>
                             <th>Edit</th>
                         </tr>
                     </thead>
                     <tbody>
                         <!-- Hämtar alla anställda, kopplad till fetchEmployee() funktionen.-->
-                        <tr v-for="emp in EmployeeGet" :key="emp.id">
-                            <td><img src="../icon/person-square.svg"></td>
-                            <td>{{ emp.firstName }}</td>
-                            <td>{{ emp.lastName }}</td>
-                            <td>{{ emp.numOfTimes }}</td>
-                            <td v-if="emp.isAvailable === 0" id="employeeStatusHover">
-                                <!-- Skickar in till funktionen changeStatusEmployee, skickar med id och om den anställda är tillgänglig.-->
-                                <button type="submit" class="btn" @click.prevent="changeStatusEmployee(emp.id, emp.isAvailable)"><img src="../icon/exclamation-circle.svg"></button>
-                                {{ ++EmpIsAvailable }}
-                            </td>
-                            <td v-if="emp.isAvailable === 1" id="employeeStatusHover">
-                                <!-- Skickar in till funktionen changeStatusEmployee, skickar med id och om den anställda är tillgänglig.-->
-                                <button type="submit" class="btn" @click.prevent="changeStatusEmployee(emp.id, emp.isAvailable)"><img src="../icon/exclamation-circle-fill.svg"></button>
-                            </td>
-                            <td><button type="submit" class="btn" @click.prevent="changeEmployeeInformation(emp.id, emp.firstName, emp.Lastname)"><img src="../icon/pencil-square.svg"></button></td>
-                        </tr>
+                        <template v-for="emp in EmployeeGet" :key="emp.id">
+                            <tr>
+                                <td><img src="../icon/person-square.svg"></td>
+                                <td>{{ emp.firstName }}</td>
+                                <td>{{ emp.lastName }}</td>
+                                <td>{{ emp.numOfTimes }}</td>
+                                <td v-if="emp.isAvailable === 0" id="employeeStatusHover">
+                                    <!-- Skickar in till funktionen changeStatusEmployee, skickar med id och om den anställda är tillgänglig.-->
+                                    <button type="submit" class="btn" @click.prevent="changeStatusEmployee(emp.id, emp.isAvailable)"><img src="../icon/exclamation-circle.svg"></button>
+                                    <!--{{ ++EmpIsAvailable }}-->
+                                </td>
+                                <td v-if="emp.isAvailable === 1" id="employeeStatusHover">
+                                    <!-- Skickar in till funktionen changeStatusEmployee, skickar med id och om den anställda är tillgänglig.-->
+                                    <button type="submit" class="btn" @click.prevent="changeStatusEmployee(emp.id, emp.isAvailable)"><img src="../icon/exclamation-circle-fill.svg"></button>
+                                </td>
+                                <td><button type="submit" class="btn" @click.prevent="changeEmployeeInformation(emp.id, emp.firstName, emp.lastName, emp.age)"><img src="../icon/pencil-square.svg"></button></td>
+                            </tr>
+                        </template>
                     </tbody>
-                    <tfoot>
-                        <tr>
-                            <td>{{ EmpIsAvailable }}</td>
-                        </tr>
-                    </tfoot>
                 </table>
             </div>
             <!-- Hämtar en anställd, kopplad till rollEmployee() funktionen.-->
@@ -76,16 +71,26 @@
             </div>
         </div>
 
-        <div v-if="EmployeeEdit" class="row">
-            <div id="employeeEdit" class="col">
-                <div>
-                    Firstname: <input type="text" v-model="employeeEditInfo.firstName" /><br />
-                    Lastname: <input type="text" v-model="employeeEditInfo.lastName" />
-                    <form @submit.prevent="changeEmployeeInformationPost">
-                        <button type="submit" class="btn btn-outline-info btn-sm">Submit changes.</button>
-                    </form>
-                </div>
+        <div v-if="EmployeeEdit" class="row" id="employeeEdit">
+            <div class="col-4">
+
             </div>
+            <div class="col-2">
+                <p>Firstname:</p>
+                <p>Lastname:</p>
+                <p>Age:</p>
+            </div>
+            <div class="col-2">
+                <input type="text" id="employeeEditInput" v-model="employeeEditInfo.firstName" /><br />
+                <input type="text" id="employeeEditInput" v-model="employeeEditInfo.lastName" /><br />
+                <input type="text" id="employeeEditInput" v-model="employeeEditInfo.age" />
+            </div>
+            <div class="col-4">
+
+            </div>
+            <form @submit.prevent="changeEmployeeInformationPost">
+                <button type="submit" class="btn btn-outline-info btn-sm">Submit changes.</button>
+            </form>
         </div>
 
     </div>
@@ -105,15 +110,13 @@
                 Employeeloading: false,
                 EmployeeEdit: false,
                 EmployeeRollShow: false,
-                EmpIsAvailable: 1,
+                EmpIsAvailable: 0,
+
                 employeeEditInfo: {
                     id: 0,
                     firstName: "",
-                    lastName: ""
-                },
-                emp: {
-                    name: "",
-                    empid: ""
+                    lastName: "",
+                    age: 0
                 }
             };
         },
@@ -141,16 +144,23 @@
                     .then(json => {
                         this.EmployeeGet = json;
                         this.Employeeloading = false;
+
+                        this.EmployeeGet.forEach((value, index) => {
+                            if (value.isAvailable) {
+                                this.increment();
+                            }
+                        });
+
                         return;
                     })
                     .catch(err => {
                         err
                     });;
             },
-            // Ändrar om en anstäld är tillgänglig för ett request.
+            // Ändrar om en anställd är tillgänglig för ett request.
             changeStatusEmployee(employee, isAvailable) {
                 this.EmployeePost = null;
-                //this.EmployeePostLoading = true;
+                this.EmpIsAvailable = 0;
 
                 fetch('Employee/ChangeStatus/', {
                     method: 'POST',
@@ -163,7 +173,6 @@
                     .then(json => {
                         this.EmployeePost = json;
                         this.fetchEmployee();
-                        //this.EmployeePostLoading = false;
                         return;
                     })
                     .catch(err => {
@@ -174,7 +183,6 @@
             rollEmployee() {
                 this.EmployeeRoll = null;
                 this.EmployeeRollShow = true;
-                //this.EmployeePostLoading = true;
 
                 fetch('Employee/Roll', {
                 })
@@ -182,15 +190,14 @@
                 .then(json => {
                     this.EmployeeRoll = json;
                     this.fetchEmployee();
-                    //this.EmployeePostLoading = false;
                     return;
                 })
                 .catch(err => {
                     err
                 });
             },
-            // Tar fram vyn för att ändra information 
-            changeEmployeeInformation(id, firstName, lastName) {
+            // Tar fram vyn för att ändra information.
+            changeEmployeeInformation(id, firstName, lastName, age) {
                 this.EmployeeGet = null;
                 this.EmployeePost = null;
                 this.EmployeeRoll = null;
@@ -199,29 +206,30 @@
                 this.employeeEditInfo.id = id;
                 this.employeeEditInfo.firstName = firstName;
                 this.employeeEditInfo.lastName = lastName;
-                console.log(this.employeeEditInfo);
+                this.employeeEditInfo.age = age;
             },
             // Tar fram vyn för att ändra information 
             changeEmployeeInformationPost() {
-                console.log(this.employeeEditInfo);
                 fetch('Employee/ChangeInformation/', {
                     method: 'POST',
                     headers: {
                         'Content-type': 'application/json'
                     },
-                    body: JSON.stringify({ id: this.employeeEditInfo.id, firstName: this.employeeEditInfo.firstName, lastName: this.employeeEditInfo.lastName })
+                    body: JSON.stringify({ id: this.employeeEditInfo.id, firstName: this.employeeEditInfo.firstName, lastName: this.employeeEditInfo.lastName, age: this.employeeEditInfo.age})
                 })
                     .then(r => r.json())
                     .then(json => {
-                        //this.EmployeePost = json;
+                        this.EmpIsAvailable = 0;
                         this.fetchEmployee();
-                        //this.EmployeePostLoading = false;
                         return;
                     })
                     .catch(err => {
                         err
                     });
                 
+            },
+            increment() {
+                this.EmpIsAvailable += 1;
             }
         },
     });

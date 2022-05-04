@@ -13,3 +13,9 @@ body {
 #employeeStatusHover:hover {
     cursor: pointer;
 }
+#employeeEdit {
+    padding-top:10px;
+}
+#employeeEditInput {
+    padding-top:5px;
+}
