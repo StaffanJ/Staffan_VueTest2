@@ -16,10 +16,8 @@ namespace WeatherForecast
         public int NumOfTimes { get; set; }
         // Is the employee available for requests.
         public int IsAvailable { get; set; }
-        // How many do we have that is available?
-        public int HowManyIsAvailable { get; set; }
-        // How many do we have in total?
-        public int HowManyDoWeHave { get; set; }
+        // Comment about employee.
+        public string? Comment { get; set; }
 
         public static List<Employee> GetEmployees()
         {

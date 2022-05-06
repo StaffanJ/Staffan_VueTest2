@@ -1,6 +1,15 @@
 <template>
     <div class="container">
         <div class="row">
+            <div class="col-2">
+                <button type="submit" class="btn" @click.prevent="fetchEmployee()"><img src="../icon/house.svg"></button>
+            </div>
+            <div class="col-10">
+
+            </div>
+            
+        </div>
+        <div class="row">
             <div v-if="EmployeeGet" class="col" id="employeesGet">
                 <table class="table table-hover table-striped table-bordered caption-top">
                     <caption>List of employees</caption>
@@ -10,7 +19,7 @@
                             <!--<th>Id</th>-->
                             <th>Firstname</th>
                             <th>Lastname</th>
-                            <th>Number of times</th>
+                            <th>Comment</th>
                             <th>Is available: {{ EmpIsAvailable }}</th>
                             <th>Edit</th>
                         </tr>
@@ -22,17 +31,16 @@
                                 <td><img src="../icon/person-square.svg"></td>
                                 <td>{{ emp.firstName }}</td>
                                 <td>{{ emp.lastName }}</td>
-                                <td>{{ emp.numOfTimes }}</td>
+                                <td>{{ emp.comment }}</td>
                                 <td v-if="emp.isAvailable === 0" id="employeeStatusHover">
                                     <!-- Skickar in till funktionen changeStatusEmployee, skickar med id och om den anställda är tillgänglig.-->
                                     <button type="submit" class="btn" @click.prevent="changeStatusEmployee(emp.id, emp.isAvailable)"><img src="../icon/exclamation-circle.svg"></button>
-                                    <!--{{ ++EmpIsAvailable }}-->
                                 </td>
                                 <td v-if="emp.isAvailable === 1" id="employeeStatusHover">
                                     <!-- Skickar in till funktionen changeStatusEmployee, skickar med id och om den anställda är tillgänglig.-->
                                     <button type="submit" class="btn" @click.prevent="changeStatusEmployee(emp.id, emp.isAvailable)"><img src="../icon/exclamation-circle-fill.svg"></button>
                                 </td>
-                                <td><button type="submit" class="btn" @click.prevent="changeEmployeeInformation(emp.id, emp.firstName, emp.lastName, emp.age)"><img src="../icon/pencil-square.svg"></button></td>
+                                <td><button type="submit" class="btn" @click.prevent="changeEmployeeInformation(emp.id, emp.firstName, emp.lastName, emp.age, emp.comment)"><img src="../icon/pencil-square.svg"></button></td>
                             </tr>
                         </template>
                     </tbody>
@@ -79,11 +87,13 @@
                 <p>Firstname:</p>
                 <p>Lastname:</p>
                 <p>Age:</p>
+                <p>Comment:</p>
             </div>
             <div class="col-2">
                 <input type="text" id="employeeEditInput" v-model="employeeEditInfo.firstName" /><br />
                 <input type="text" id="employeeEditInput" v-model="employeeEditInfo.lastName" /><br />
-                <input type="text" id="employeeEditInput" v-model="employeeEditInfo.age" />
+                <input type="text" id="employeeEditInput" v-model="employeeEditInfo.age" /><br />
+                <textarea  v-model="employeeEditInfo.comment" rows="4"></textarea>
             </div>
             <div class="col-4">
 
@@ -116,7 +126,8 @@
                     id: 0,
                     firstName: "",
                     lastName: "",
-                    age: 0
+                    age: 0,
+                    comment: ""
                 }
             };
         },
@@ -197,7 +208,7 @@
                 });
             },
             // Tar fram vyn för att ändra information.
-            changeEmployeeInformation(id, firstName, lastName, age) {
+            changeEmployeeInformation(id, firstName, lastName, age, comment) {
                 this.EmployeeGet = null;
                 this.EmployeePost = null;
                 this.EmployeeRoll = null;
@@ -207,6 +218,7 @@
                 this.employeeEditInfo.firstName = firstName;
                 this.employeeEditInfo.lastName = lastName;
                 this.employeeEditInfo.age = age;
+                this.employeeEditInfo.comment = comment
             },
             // Tar fram vyn för att ändra information 
             changeEmployeeInformationPost() {
@@ -215,7 +227,13 @@
                     headers: {
                         'Content-type': 'application/json'
                     },
-                    body: JSON.stringify({ id: this.employeeEditInfo.id, firstName: this.employeeEditInfo.firstName, lastName: this.employeeEditInfo.lastName, age: this.employeeEditInfo.age})
+                    body: JSON.stringify({
+                        id: this.employeeEditInfo.id,
+                        firstName: this.employeeEditInfo.firstName,
+                        lastName: this.employeeEditInfo.lastName,
+                        age: this.employeeEditInfo.age,
+                        comment: this.employeeEditInfo.comment
+                    })
                 })
                     .then(r => r.json())
                     .then(json => {

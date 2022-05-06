@@ -6,8 +6,7 @@
     "Age": 29,
     "NumOfTimes": 12,
     "IsAvailable": 1,
-    "HowManyIsAvailable": 0,
-    "HowManyDoWeHave": 0
+    "Comment": "Helt stopp, TL s\u00E4ger till n\u00E4r man kan ta igen."
   },
   {
     "Id": 2,
@@ -16,8 +15,7 @@
     "Age": 0,
     "NumOfTimes": 12,
     "IsAvailable": 0,
-    "HowManyIsAvailable": 0,
-    "HowManyDoWeHave": 0
+    "Comment": ""
   },
   {
     "Id": 3,
@@ -26,8 +24,7 @@
     "Age": 0,
     "NumOfTimes": 12,
     "IsAvailable": 1,
-    "HowManyIsAvailable": 0,
-    "HowManyDoWeHave": 0
+    "Comment": ""
   },
   {
     "Id": 4,
@@ -36,8 +33,7 @@
     "Age": 0,
     "NumOfTimes": 13,
     "IsAvailable": 1,
-    "HowManyIsAvailable": 0,
-    "HowManyDoWeHave": 0
+    "Comment": ""
   },
   {
     "Id": 5,
@@ -46,8 +42,7 @@
     "Age": 0,
     "NumOfTimes": 12,
     "IsAvailable": 1,
-    "HowManyIsAvailable": 0,
-    "HowManyDoWeHave": 0
+    "Comment": ""
   },
   {
     "Id": 6,
@@ -56,8 +51,7 @@
     "Age": 0,
     "NumOfTimes": 12,
     "IsAvailable": 0,
-    "HowManyIsAvailable": 0,
-    "HowManyDoWeHave": 0
+    "Comment": ""
   },
   {
     "Id": 7,
@@ -66,8 +60,7 @@
     "Age": 0,
     "NumOfTimes": 12,
     "IsAvailable": 1,
-    "HowManyIsAvailable": 0,
-    "HowManyDoWeHave": 0
+    "Comment": ""
   },
   {
     "Id": 8,
@@ -76,8 +69,7 @@
     "Age": 0,
     "NumOfTimes": 12,
     "IsAvailable": 1,
-    "HowManyIsAvailable": 0,
-    "HowManyDoWeHave": 0
+    "Comment": ""
   },
   {
     "Id": 9,
@@ -86,8 +78,7 @@
     "Age": 0,
     "NumOfTimes": 12,
     "IsAvailable": 0,
-    "HowManyIsAvailable": 0,
-    "HowManyDoWeHave": 0
+    "Comment": ""
   },
   {
     "Id": 10,
@@ -96,8 +87,7 @@
     "Age": 0,
     "NumOfTimes": 12,
     "IsAvailable": 1,
-    "HowManyIsAvailable": 0,
-    "HowManyDoWeHave": 0
+    "Comment": ""
   },
   {
     "Id": 11,
@@ -106,8 +96,7 @@
     "Age": 0,
     "NumOfTimes": 13,
     "IsAvailable": 0,
-    "HowManyIsAvailable": 0,
-    "HowManyDoWeHave": 0
+    "Comment": ""
   },
   {
     "Id": 12,
@@ -116,8 +105,7 @@
     "Age": 0,
     "NumOfTimes": 12,
     "IsAvailable": 1,
-    "HowManyIsAvailable": 0,
-    "HowManyDoWeHave": 0
+    "Comment": ""
   },
   {
     "Id": 13,
@@ -126,8 +114,7 @@
     "Age": 0,
     "NumOfTimes": 12,
     "IsAvailable": 1,
-    "HowManyIsAvailable": 0,
-    "HowManyDoWeHave": 0
+    "Comment": ""
   },
   {
     "Id": 14,
@@ -136,8 +123,7 @@
     "Age": 0,
     "NumOfTimes": 13,
     "IsAvailable": 0,
-    "HowManyIsAvailable": 0,
-    "HowManyDoWeHave": 0
+    "Comment": ""
   },
   {
     "Id": 15,
@@ -146,8 +132,7 @@
     "Age": 0,
     "NumOfTimes": 12,
     "IsAvailable": 1,
-    "HowManyIsAvailable": 0,
-    "HowManyDoWeHave": 0
+    "Comment": ""
   },
   {
     "Id": 16,
@@ -156,7 +141,6 @@
     "Age": 0,
     "NumOfTimes": 13,
     "IsAvailable": 1,
-    "HowManyIsAvailable": 0,
-    "HowManyDoWeHave": 0
+    "Comment": ""
   }
 ]

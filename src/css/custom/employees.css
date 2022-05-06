@@ -19,3 +19,6 @@ body {
 #employeeEditInput {
     padding-top:5px;
 }
+textarea {
+    width: auto;
+}
